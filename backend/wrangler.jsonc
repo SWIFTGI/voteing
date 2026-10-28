@@ -1,0 +1,38 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "voter98-backend",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-07-09",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "triggers": {
+    "crons": [
+      "*/5 * * * *",
+      "0 0 * * *"
+    ]
+  },
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "vars": {
+    "JWT_SECRET": "your-super-secret-jwt-key-for-development-please-change-in-production",
+    "FRONTEND_URL": "https://xxxxxxx.xxxxxxxx.workers.dev",
+    "TIMEZONE": "Europe/Istanbul"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "voter-db",
+      "database_id": "YOUR_D1_DATABASE_ID_HERE"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "IMAGES_BUCKET",
+      "bucket_name": "voter98-images",
+      "preview_bucket_name": "voter98-images-preview"
+    }
+  ]
+}
